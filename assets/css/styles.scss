@@ -63,6 +63,15 @@ body {
     }
 }
 
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 header {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     background-color: var(--color-elements);
@@ -205,6 +214,17 @@ main {
         display: grid;
         grid-template-columns: repeat( auto-fit, minmax(200px, 1fr));
         grid-gap: 60px;
+        .loader {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: inline-block;
+            border-top: 3px solid #FFF;
+            border-right: 3px solid transparent;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+            margin: 20px auto;
+        }
         .card {
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
             background-color: var(--color-elements);

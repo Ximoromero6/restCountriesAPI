@@ -7,7 +7,7 @@
     fetch(url)
         .then((response) => response.json())
         .then((data) => {
-
+            containerCards.innerHTML = "";
             data.forEach(el => {
                 countriesArray.push(el);
                 containerCards.append(renderElement(el));
@@ -19,9 +19,8 @@
 
         let inputText = evt.target.value;
         inputText.trim();
-        inputText.toLowerCase();
 
-        let filteredFlags = countriesArray.filter(el => isMatch(el.name.common.toLowerCase(), inputText));
+        let filteredFlags = countriesArray.filter(el => isMatch(el.name.common, inputText));
 
         containerCards.innerHTML = "";
         filteredFlags.forEach((e) => {
@@ -94,8 +93,8 @@
 
     //Function to check if two string matches
     function isMatch(str, testCase) {
-        var rgx = new RegExp(testCase);
-        return str.match(rgx);
+        let rgx = new RegExp(testCase.toLowerCase());
+        return str.toLowerCase().match(rgx);
     }
 
 })();

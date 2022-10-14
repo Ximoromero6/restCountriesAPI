@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css");
+/* Colors */
+/* End colors */
+html[data-theme="light"] {
+  --color-text: #111517;
+  --color-background: #fafafa;
+  --color-elements: white;
+}
+
+html[data-theme="dark"] {
+  --color-text: white;
+  --color-background: #202c37;
+  --color-elements: #2b3945;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--color-background);
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--color-elements);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-text);
+  border-radius: 6px;
+}
+
+header {
+  -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: var(--color-elements);
+}
+
+header .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 15px;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .container .title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+header .container .labelDarkMode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text);
+  padding: 10px;
+  border-radius: 6px;
+  background-color: var(--color-background);
+}
+
+header .container .labelDarkMode i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 6px;
+}
+
+header .container .labelDarkMode:hover {
+  /*   color: lighten(var(--color-text), 10); */
+}
+
+header .container #darkModeButton {
+  display: none;
+}
+
+main {
+  max-width: 1150px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 15px;
+}
+
+main .containerFilters {
+  margin: 45px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .containerFilters .containerSearchBar {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background-color: var(--color-elements);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30rem;
+  height: 50px;
+  color: var(--color-text);
+  border-radius: 6px;
+}
+
+main .containerFilters .containerSearchBar i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  margin: 0 20px;
+}
+
+main .containerFilters .containerSearchBar #searchBar {
+  width: 100%;
+  border: none;
+  outline: 0;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px;
+  background-color: transparent;
+  height: 100%;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+main .containerFilters .containerSearchBar #searchBar::-webkit-input-placeholder {
+  color: var(--color-text);
+}
+
+main .containerFilters .containerSearchBar #searchBar:-ms-input-placeholder {
+  color: var(--color-text);
+}
+
+main .containerFilters .containerSearchBar #searchBar::-ms-input-placeholder {
+  color: var(--color-text);
+}
+
+main .containerFilters .containerSearchBar #searchBar::placeholder {
+  color: var(--color-text);
+}
+
+main .containerFilters .dropdown {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background-color: var(--color-elements);
+  padding: 15px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: var(--color-text);
+  min-width: 180px;
+}
+
+main .containerFilters .dropdown p {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+main .containerFilters .dropdown i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 10px;
+}
+
+main .containerFilters .dropdown .dropdownContent {
+  display: none;
+  position: absolute;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background-color: var(--color-elements);
+  z-index: 1;
+  min-width: 180px;
+  padding: 8px 0;
+  border-radius: 6px;
+  left: 0;
+  top: 55px;
+}
+
+main .containerFilters .dropdown .dropdownContent li {
+  list-style: none;
+  padding: 4px 20px;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+main .containerFilters .dropdown .dropdownContent li span {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+main .containerFilters .dropdown .dropdownContent li:hover {
+  background-color: var(--color-background);
+}
+
+main .containerFilters .dropdown:hover .dropdownContent {
+  display: block;
+}
+
+main .containerCards {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 60px;
+}
+
+main .containerCards .card {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: var(--color-elements);
+  min-height: 310px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--color-text);
+  max-width: 300px;
+}
+
+main .containerCards .card .containerImageFlag {
+  height: 170px;
+}
+
+main .containerCards .card .containerImageFlag img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 6px 6px 0 0;
+}
+
+main .containerCards .card .containerInfoFlag {
+  padding: 20px;
+}
+
+main .containerCards .card .containerInfoFlag h2 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+main .containerCards .card .containerInfoFlag p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+main .containerCards .card .containerInfoFlag p span {
+  margin-left: 5px;
+  font-weight: normal;
+}
+
+@media (max-width: 768px) {
+  main .containerFilters {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin: 25px auto;
+  }
+  main .containerFilters .containerSearchBar {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  main .containerCards {
+    grid-gap: 40px;
+  }
+  main .containerCards .card {
+    max-width: none;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

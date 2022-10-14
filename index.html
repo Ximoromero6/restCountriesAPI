@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="assets/images/favicon.ico">
+    <meta name="title" content="REST Countries API | Ximo Romero">
+    <meta name="description" content="Your challenge is to integrate with the [REST Countries API](https://restcountries.com) to pull country data and display it like in the designs.">
+    <meta name="keywords" content="js challange, frontmentor, css design">
+    <meta name="robots" content="index, follow">
+    <title>REST Countries API | Ximo Romero</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="title">Where is the world?</h1>
+            <label for="darkModeButton" class="labelDarkMode"><i class="fi fi-rr-moon-stars" id="iconTheme"></i><span>Dark Mode</span></label>
+            <input type="checkbox" id="darkModeButton">
+        </div>
+    </header>
+    <main>
+        <div class="containerFilters">
+            <div class="containerSearchBar">
+                <i class="fi fi-rr-search"></i>
+                <input type="text" placeholder="Search for a country..." id="searchBar">
+            </div>
+            <div class="dropdown">
+                <p>Filter by Region</p>
+                <i class="fi fi-rr-angle-down"></i>
+                <ul class="dropdownContent">
+                    <li data-region="africa">
+                        <span>Africa</span>
+                    </li>
+                    <li data-region="america">
+                        <span>America</span>
+                    </li>
+                    <li data-region="asia">
+                        <span>Asia</span>
+                    </li>
+                    <li data-region="europe">
+                        <span>Europe</span>
+                    </li>
+                    <li data-region="oceania">
+                        <span>Oceania</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="containerCards"></div>
+    </main>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

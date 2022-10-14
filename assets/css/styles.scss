@@ -262,11 +262,102 @@ main {
             }
         }
     }
+    .containerBack {
+        margin: 25px auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .backButton {
+            text-decoration: none;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            background-color: var(--color-elements);
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            padding: 5px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            i {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 10px;
+            }
+        }
+    }
+    .containerDetails {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .flagContainer {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            img {
+                width: 100%;
+                border-radius: 6px;
+            }
+        }
+        .textContainer {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: var(--color-text);
+            .primaryIformation {
+                .title {
+                    color: var(--color-text);
+                    font-size: 27px;
+                    margin-bottom: 20px;
+                }
+            }
+            p {
+                color: var(--color-text);
+                font-weight: 700;
+                span {
+                    margin-left: 6px;
+                    font-weight: normal;
+                }
+            }
+            .topContainer {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .borderContainer {
+                display: flex;
+                align-items: center;
+                margin-top: 40px;
+                span {
+                    margin-right: 5px;
+                    font-weight: 700;
+                }
+                .countriesContainer {
+                    display: flex;
+                    align-items: center;
+                    .country {
+                        border-radius: 6px;
+                        padding: 5px 15px;
+                        background-color: var(--color-elements);
+                        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                        margin: 0 5px;
+                        font-size: 14px;
+                        color: var(--color-text);
+                    }
+                }
+            }
+        }
+    }
     @media(max-width: 768px) {
         .containerFilters {
             flex-direction: column;
             align-items: flex-start;
             margin: 25px auto;
+            margin-top: 0;
             .containerSearchBar {
                 width: 100%;
                 margin-bottom: 30px;
@@ -276,6 +367,52 @@ main {
             grid-gap: 40px;
             .card {
                 max-width: none;
+            }
+        }
+        .containerDetails {
+            flex-direction: column;
+            align-items: flex-start;
+            .flagContainer {
+                margin-right: 0;
+            }
+            .textContainer {
+                margin: 40px 0;
+                .topContainer {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    .secondaryInformation {
+                        margin-top: 40px;
+                    }
+                }
+                .borderContainer {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    span {
+                        margin-bottom: 15px;
+                    }
+                    .countriesContainer {
+                        .country {
+                            &:first-child {
+                                margin-left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media(max-width: 300px) {
+        .containerDetails {
+            .textContainer {
+                .borderContainer {
+                    .countriesContainer {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        .country {
+                            margin: 5px 0;
+                        }
+                    }
+                }
             }
         }
     }

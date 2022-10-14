@@ -4,6 +4,43 @@
     const inputSearch = document.getElementById("searchBar");
     const countriesArray = [];
 
+    //Function for render HTML element
+    function renderElement(element) {
+        const newCountry = document.createElement("a");
+        newCountry.href = `index.html/details?code=${element.fifa}`;
+        newCountry.classList.add("card");
+        newCountry.innerHTML = `
+                <div class="containerImageFlag">
+                    <img src="${element.flags.svg}" alt="${element.name.common} Country Flag">
+                </div>
+                <div class="containerInfoFlag">
+                    <h2>${element.name.common}</h2>
+                    <p class="population">Population:
+                        <span>${numberWithCommas(element.population)}</span>
+                    </p>
+                    <p class="region">Region:
+                        <span>${element.region}</span>
+                    </p>
+                    <p class="capital">Capital:
+                        <span>${element.capital}</span>
+                    </p>
+            </div>
+                `;
+
+        return newCountry;
+    }
+
+    //Function to add comma into the population numbers
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    //Function to check if two string matches
+    function isMatch(str, testCase) {
+        let rgx = new RegExp(testCase.toLowerCase());
+        return str.toLowerCase().match(rgx);
+    }
+
     fetch(url)
         .then((response) => response.json())
         .then((data) => {
@@ -59,42 +96,5 @@
             textTheme.textContent = "Dark Mode";
         }
     });
-
-    //Function for render HTML element
-    function renderElement(element) {
-        const newCountry = document.createElement("a");
-        newCountry.href = `index.html/details?code=${element.fifa}`;
-        newCountry.classList.add("card");
-        newCountry.innerHTML = `
-                <div class="containerImageFlag">
-                    <img src="${element.flags.svg}" alt="${element.name.common} Country Flag">
-                </div>
-                <div class="containerInfoFlag">
-                    <h2>${element.name.common}</h2>
-                    <p class="population">Population:
-                        <span>${numberWithCommas(element.population)}</span>
-                    </p>
-                    <p class="region">Region:
-                        <span>${element.region}</span>
-                    </p>
-                    <p class="capital">Capital:
-                        <span>${element.capital}</span>
-                    </p>
-            </div>
-                `;
-
-        return newCountry;
-    }
-
-    //Function to add comma into the population numbers
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-
-    //Function to check if two string matches
-    function isMatch(str, testCase) {
-        let rgx = new RegExp(testCase.toLowerCase());
-        return str.toLowerCase().match(rgx);
-    }
 
 })();

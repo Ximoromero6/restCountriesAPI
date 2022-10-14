@@ -352,6 +352,164 @@ main .containerCards .card .containerInfoFlag p span {
   font-weight: normal;
 }
 
+main .containerBack {
+  margin: 25px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+main .containerBack .backButton {
+  text-decoration: none;
+  color: var(--color-text);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 14px;
+  background-color: var(--color-elements);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 5px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+main .containerBack .backButton i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 10px;
+}
+
+main .containerDetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .containerDetails .flagContainer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 30px;
+}
+
+main .containerDetails .flagContainer img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+main .containerDetails .textContainer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: var(--color-text);
+}
+
+main .containerDetails .textContainer .primaryIformation .title {
+  color: var(--color-text);
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+
+main .containerDetails .textContainer p {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+main .containerDetails .textContainer p span {
+  margin-left: 6px;
+  font-weight: normal;
+}
+
+main .containerDetails .textContainer .topContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .containerDetails .textContainer .borderContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 40px;
+}
+
+main .containerDetails .textContainer .borderContainer span {
+  margin-right: 5px;
+  font-weight: 700;
+}
+
+main .containerDetails .textContainer .borderContainer .countriesContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .containerDetails .textContainer .borderContainer .countriesContainer .country {
+  border-radius: 6px;
+  padding: 5px 15px;
+  background-color: var(--color-elements);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin: 0 5px;
+  font-size: 14px;
+  color: var(--color-text);
+}
+
 @media (max-width: 768px) {
   main .containerFilters {
     -webkit-box-orient: vertical;
@@ -362,6 +520,7 @@ main .containerCards .card .containerInfoFlag p span {
         -ms-flex-align: start;
             align-items: flex-start;
     margin: 25px auto;
+    margin-top: 0;
   }
   main .containerFilters .containerSearchBar {
     width: 100%;
@@ -372,6 +531,63 @@ main .containerCards .card .containerInfoFlag p span {
   }
   main .containerCards .card {
     max-width: none;
+  }
+  main .containerDetails {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  main .containerDetails .flagContainer {
+    margin-right: 0;
+  }
+  main .containerDetails .textContainer {
+    margin: 40px 0;
+  }
+  main .containerDetails .textContainer .topContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  main .containerDetails .textContainer .topContainer .secondaryInformation {
+    margin-top: 40px;
+  }
+  main .containerDetails .textContainer .borderContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  main .containerDetails .textContainer .borderContainer span {
+    margin-bottom: 15px;
+  }
+  main .containerDetails .textContainer .borderContainer .countriesContainer .country:first-child {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 300px) {
+  main .containerDetails .textContainer .borderContainer .countriesContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  main .containerDetails .textContainer .borderContainer .countriesContainer .country {
+    margin: 5px 0;
   }
 }
 /*# sourceMappingURL=styles.css.map */

@@ -8,7 +8,7 @@
     //Function for render HTML element
     function renderElement(element) {
         const newCountry = document.createElement("a");
-        newCountry.href = `?code=${element.fifa}`;
+        newCountry.href = `?code=${element.cca3}`;
         newCountry.classList.add("card");
         newCountry.innerHTML = `
                 <div class="containerImageFlag">
@@ -47,7 +47,7 @@
         .then((data) => {
             containerCards.innerHTML = "";
             data.forEach(el => {
-                /*   console.log(el); */
+                /*  console.log(el); */
                 countriesArray.push(el);
                 containerCards.append(renderElement(el));
             });
@@ -75,6 +75,9 @@
 
     });
 
+    //Function for focus input
+    inputSearch.addEventListener("focusin", (e) => { e.target.closest(".containerSearchBar").classList.add("focus") });
+    inputSearch.addEventListener("focusout", (e) => { e.target.closest(".containerSearchBar").classList.remove("focus") });
 
     //Dark theme implementation
     const checkbox = document.getElementById("darkModeButton");
@@ -114,8 +117,6 @@
         let selectedRegion = evt.target.nodeName == "LI" ? evt.target.getAttribute("data-region") : evt.target.parentNode.getAttribute("data-region");
 
         if (selectedRegion != null) {
-            console.log(selectedRegion);
-
             let filteredFlagsByRegion = countriesArray.filter(el => el.region.toLowerCase() == selectedRegion);
 
             containerCards.innerHTML = "";
@@ -133,46 +134,46 @@
 
         let closestElement = evt.target.closest(".card");
 
-        /*  if (closestElement != null && closestElement.nodeName == "A") {
-            
-         } */
+        if (closestElement) {
+            const urlParams = new URLSearchParams(closestElement.href);
 
-        const urlParams = new URLSearchParams(closestElement.href);
-
-        for (const p of urlParams) {
-            let clickedCountry = countriesArray.filter(el => el.fifa === p[1]);
-            let country = clickedCountry[0];
-            let languages;
-            let currencies;
+            for (const p of urlParams) {
+                let clickedCountry = countriesArray.filter(el => el.cca3 === p[1]);
+                let country = clickedCountry[0];
+                console.log(country.name);
+                let languages;
+                let currencies;
 
 
-            Object.values(country.languages).forEach(val => {
-                languages = val;
-            });
-
-            Object.values(country.currencies).forEach(val => {
-                currencies = val.name;
-            });
-
-            let countriesContainer = document.createElement("div");
-            countriesContainer.classList.add("countriesContainer");
-
-            /* country.borders.forEach((e) => {
-                let newBorder = document.createElement("p");
-                let countryBorderName;
-                newBorder.classList.add("country");
-
-                countriesArray.filter(el => {
-                    if (el.fifa === e) {
-                        countryBorderName = el.altSpellings[1];
-                    }
+                Object.values(country.languages).forEach(val => {
+                    languages = val;
                 });
 
-                newBorder.textContent = countryBorderName;
-                countriesContainer.append(newBorder);
-            }); */
+                Object.values(country.currencies).forEach(val => {
+                    currencies = val.name;
+                });
 
-            mainTag.innerHTML = `
+                let countriesContainer = document.createElement("div");
+                countriesContainer.classList.add("countriesContainer");
+
+                if (country.borders) {
+                    country.borders.forEach((e) => {
+                        let newBorder = document.createElement("p");
+                        let countryBorderName;
+                        newBorder.classList.add("country");
+
+                        countriesArray.filter(el => {
+                            if (el.cca3 === e) {
+                                countryBorderName = el.name.common;
+                            }
+                        });
+
+                        newBorder.textContent = countryBorderName;
+                        countriesContainer.append(newBorder);
+                    });
+                }
+
+                mainTag.innerHTML = `
             <div class="containerBack">
                 <a href="" class="backButton"><i class="fi fi-rr-arrow-left"></i>Back</a>
             </div>
@@ -184,7 +185,7 @@
                     <div class="topContainer">
                         <div class="primaryIformation">
                             <h1 class="title">${country.name.common}</h1>
-                            <p>Native Name:<span>${country.altSpellings[1]}</span></p>
+                            <p>Native Name:<span>${Object.values(country.name.nativeName)[0].common}</span></p>
                             <p>Population:<span>${numberWithCommas(country.population)}</span></p>
                             <p>Region:<span>${country.region}</span></p>
                             <p>Sub Region:<span>${country.subregion}</span></p>
@@ -203,9 +204,12 @@
             </div>
             `;
 
-            mainTag.querySelector(".containerDetails > .textContainer > .borderContainer").appendChild(countriesContainer);
+                mainTag.querySelector(".containerDetails > .textContainer > .borderContainer").appendChild(countriesContainer);
 
+            }
         }
+
+
 
     });
 

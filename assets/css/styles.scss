@@ -77,6 +77,10 @@ body {
 header {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     background-color: var(--color-elements);
+    border-top: 5px solid;
+    border-image-slice: 1;
+    border-width: 3px;
+    border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
     .container {
         display: flex;
         align-items: center;
@@ -142,6 +146,11 @@ main {
             height: 50px;
             color: var(--color-text);
             border-radius: 6px;
+            border: 2px solid transparent;
+            &.focus {
+                border-color: var(--color-text);
+            }
+            transition: all .1s;
             i {
                 display: flex;
                 justify-content: center;
@@ -405,17 +414,20 @@ main {
                         margin-bottom: 15px;
                     }
                     .countriesContainer {
+                        flex-direction: column;
+                        align-items: flex-start;
                         .country {
-                            &:first-child {
+                            margin: 5px 0;
+                            /* &:first-child {
                                 margin-left: 0;
-                            }
+                            } */
                         }
                     }
                 }
             }
         }
     }
-    @media(max-width: 300px) {
+    /*  @media(max-width: 300px) {
         .containerDetails {
             .textContainer {
                 .borderContainer {
@@ -429,5 +441,5 @@ main {
                 }
             }
         }
-    }
+    } */
 }

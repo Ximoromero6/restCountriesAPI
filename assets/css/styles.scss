@@ -27,6 +27,8 @@ $Very_Light_Gray: hsl(0,
 $White: hsl(0,
 0%,
 100%);
+$purple: #685cf8;
+$spring_green: #ffffe0;
 
 /* End colors */
 
@@ -83,10 +85,17 @@ header {
         padding: 15px;
         width: 100%;
         justify-content: space-between;
-        .title {
-            font-size: 20px;
-            font-weight: 700;
+        a.logo {
+            text-decoration: none;
             color: var(--color-text);
+            .title {
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--color-text);
+            }
+            &:hover {
+                text-decoration: underline;
+            }
         }
         .labelDarkMode {
             display: flex;
@@ -168,6 +177,7 @@ main {
             justify-content: space-between;
             color: var(--color-text);
             min-width: 180px;
+            user-select: none;
             p {
                 font-weight: 600;
                 font-size: 14px;
@@ -202,9 +212,7 @@ main {
                         background-color: var(--color-background);
                     }
                 }
-            }
-            &:hover {
-                .dropdownContent {
+                &.open {
                     display: block;
                 }
             }
@@ -224,6 +232,12 @@ main {
             box-sizing: border-box;
             animation: rotation 1s linear infinite;
             margin: 20px auto;
+        }
+        .notFoundElement {
+            font-size: 22px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--color-text);
         }
         .card {
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;

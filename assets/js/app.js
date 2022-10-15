@@ -3,11 +3,12 @@
     const containerCards = document.querySelector(".containerCards");
     const inputSearch = document.getElementById("searchBar");
     const countriesArray = [];
+    const mainTag = document.getElementsByTagName("main")[0];
 
     //Function for render HTML element
     function renderElement(element) {
         const newCountry = document.createElement("a");
-        newCountry.href = `index.html/details?code=${element.fifa}`;
+        newCountry.href = `?code=${element.fifa}`;
         newCountry.classList.add("card");
         newCountry.innerHTML = `
                 <div class="containerImageFlag">
@@ -46,6 +47,7 @@
         .then((data) => {
             containerCards.innerHTML = "";
             data.forEach(el => {
+                /*   console.log(el); */
                 countriesArray.push(el);
                 containerCards.append(renderElement(el));
             });
@@ -60,9 +62,16 @@
         let filteredFlags = countriesArray.filter(el => isMatch(el.name.common, inputText));
 
         containerCards.innerHTML = "";
-        filteredFlags.forEach((e) => {
-            containerCards.append(renderElement(e));
-        });
+        if (filteredFlags.length) {
+            filteredFlags.forEach((e) => {
+                containerCards.append(renderElement(e));
+            });
+        } else {
+            let notFoundElement = document.createElement("p");
+            notFoundElement.classList.add("notFoundElement");
+            notFoundElement.textContent = "Country not found, try with other...";
+            containerCards.append(notFoundElement);
+        }
 
     });
 
@@ -95,6 +104,109 @@
             iconTheme.className = "fi fi-rr-moon-stars";
             textTheme.textContent = "Dark Mode";
         }
+    });
+
+    //Filter dropdown
+    const dropdown = document.querySelector(".dropdown");
+    const dropdownContent = document.querySelector(".dropdownContent");
+
+    dropdown.addEventListener("click", (evt) => {
+        let selectedRegion = evt.target.nodeName == "LI" ? evt.target.getAttribute("data-region") : evt.target.parentNode.getAttribute("data-region");
+
+        if (selectedRegion != null) {
+            console.log(selectedRegion);
+
+            let filteredFlagsByRegion = countriesArray.filter(el => el.region.toLowerCase() == selectedRegion);
+
+            containerCards.innerHTML = "";
+            filteredFlagsByRegion.forEach((e) => {
+                containerCards.append(renderElement(e));
+            });
+        }
+
+        dropdownContent.classList.toggle("open");
+    });
+
+    //Add view details functionality
+    containerCards.addEventListener("click", (evt) => {
+        evt.preventDefault();
+
+        let closestElement = evt.target.closest(".card");
+
+        /*  if (closestElement != null && closestElement.nodeName == "A") {
+            
+         } */
+
+        const urlParams = new URLSearchParams(closestElement.href);
+
+        for (const p of urlParams) {
+            let clickedCountry = countriesArray.filter(el => el.fifa === p[1]);
+            let country = clickedCountry[0];
+            let languages;
+            let currencies;
+
+
+            Object.values(country.languages).forEach(val => {
+                languages = val;
+            });
+
+            Object.values(country.currencies).forEach(val => {
+                currencies = val.name;
+            });
+
+            let countriesContainer = document.createElement("div");
+            countriesContainer.classList.add("countriesContainer");
+
+            /* country.borders.forEach((e) => {
+                let newBorder = document.createElement("p");
+                let countryBorderName;
+                newBorder.classList.add("country");
+
+                countriesArray.filter(el => {
+                    if (el.fifa === e) {
+                        countryBorderName = el.altSpellings[1];
+                    }
+                });
+
+                newBorder.textContent = countryBorderName;
+                countriesContainer.append(newBorder);
+            }); */
+
+            mainTag.innerHTML = `
+            <div class="containerBack">
+                <a href="" class="backButton"><i class="fi fi-rr-arrow-left"></i>Back</a>
+            </div>
+            <div class="containerDetails">
+                <section class="flagContainer">
+                    <img src="${country.flags.svg}" alt="${country.name.common} Country Flag">
+                </section>
+                <section class="textContainer">
+                    <div class="topContainer">
+                        <div class="primaryIformation">
+                            <h1 class="title">${country.name.common}</h1>
+                            <p>Native Name:<span>${country.altSpellings[1]}</span></p>
+                            <p>Population:<span>${numberWithCommas(country.population)}</span></p>
+                            <p>Region:<span>${country.region}</span></p>
+                            <p>Sub Region:<span>${country.subregion}</span></p>
+                            <p>Capital:<span>${country.capital}</span></p>
+                        </div>
+                        <div class="secondaryInformation">
+                            <p>Top Level Domain:<span>${country.tld[0]}</span></p>
+                            <p>Currencie:<span>${currencies}</span></p>
+                            <p>Language:<span>${languages}</span></p>
+                        </div>
+                    </div>
+                    <div class="borderContainer">
+                        <span>Border Countries:</span>
+                    </div>
+                </section>
+            </div>
+            `;
+
+            mainTag.querySelector(".containerDetails > .textContainer > .borderContainer").appendChild(countriesContainer);
+
+        }
+
     });
 
 })();

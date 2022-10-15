@@ -83,10 +83,19 @@ header .container {
           justify-content: space-between;
 }
 
-header .container .title {
+header .container a.logo {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+header .container a.logo .title {
   font-size: 20px;
   font-weight: 700;
   color: var(--color-text);
+}
+
+header .container a.logo:hover {
+  text-decoration: underline;
 }
 
 header .container .labelDarkMode {
@@ -226,6 +235,10 @@ main .containerFilters .dropdown {
           justify-content: space-between;
   color: var(--color-text);
   min-width: 180px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 main .containerFilters .dropdown p {
@@ -277,7 +290,7 @@ main .containerFilters .dropdown .dropdownContent li:hover {
   background-color: var(--color-background);
 }
 
-main .containerFilters .dropdown:hover .dropdownContent {
+main .containerFilters .dropdown .dropdownContent.open {
   display: block;
 }
 
@@ -301,6 +314,13 @@ main .containerCards .loader {
   -webkit-animation: rotation 1s linear infinite;
           animation: rotation 1s linear infinite;
   margin: 20px auto;
+}
+
+main .containerCards .notFoundElement {
+  font-size: 22px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-text);
 }
 
 main .containerCards .card {

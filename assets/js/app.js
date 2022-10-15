@@ -67,9 +67,14 @@
                 containerCards.append(renderElement(e));
             });
         } else {
-            let notFoundElement = document.createElement("p");
+            let notFoundElement = document.createElement("div");
             notFoundElement.classList.add("notFoundElement");
-            notFoundElement.textContent = "Country not found, try with other...";
+            notFoundElement.innerHTML = `
+                <div class="containerImage">
+                    <img src="assets/images/empty.png" alt="">
+                </div>
+                <p>Country not found, try with other...</p>
+            `;
             containerCards.append(notFoundElement);
         }
 
